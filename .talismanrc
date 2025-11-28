@@ -1,9 +1,8 @@
 fileignoreconfig:
-- filename: routes/productsRoute.js
-  checksum: b047c4f50fe720c5a6b209126d316c2ce97822f48acf470db41ce68447d01eda
-- filename: routes/orderRoute.js
-  checksum: 69650d42cefca8820e206ce587dbc0408473be0b6cd78908b26c366b1819375a
-- filename: package-lock.json
-  checksum: eee3a003c5ab42a979c02c343921da3dd977339affd73d7bf0fe4cd80f6976d2
+  - filename: routes/productsRoute.js
+    checksum: b047c4f50fe720c5a6b209126d316c2ce97822f48acf470db41ce68447d01eda
+  - filename: routes/orderRoute.js
+    checksum: 69650d42cefca8820e206ce587dbc0408473be0b6cd78908b26c366b1819375a
+  - filename: package-lock.json
+    checksum: eee3a003c5ab42a979c02c343921da3dd977339affd73d7bf0fe4cd80f6976d2
 version: "1.0"
-
