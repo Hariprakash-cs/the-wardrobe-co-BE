@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 var mongoURL =
-  "mongodb+srv://Hariprakash:Hariprakash20@cluster0.3wyvyo5.mongodb.net/pixel-cms-ecommerce";
+  process.env.MONGODB_URI || "mongodb://localhost:27017/pixel-ecommerce";
 
 mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true });
 

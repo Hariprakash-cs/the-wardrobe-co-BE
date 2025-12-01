@@ -2,24 +2,23 @@ const { v4: uuidv4 } = require("uuid");
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const stripe = require("stripe")(
-  "sk_test_51LeHpZIjTW834vhapGxONtJOuSIA960xmS94XHdU8Cy175Jd0vUmyc26kRrklsxheUg5mJ1RouA94VjVQb4Xqd4g00w513MhUX"
-);
-// const stripe = require("stripe")("sk_test_51IYnC0SIR2AbPxU0EiMx1fTwzbZXLbkaOcbc2cXx49528d9TGkQVjUINJfUDAnQMVaBFfBDP5xtcHCkZG1n1V3E800U7qXFmGf")
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const Order = require("../models/orderModel");
 
 // Contentstack Configuration
 const CONTENTSTACK_CONFIG = {
-  apiKey: "blt3435e7e7f3e56dcc",
-  accessToken: "cseab624052afe37759c0de021",
-  environment: "main",
-  baseURL: "https://cdn.contentstack.io/v3",
+  apiKey: process.env.CONTENTSTACK_API_KEY,
+  accessToken: process.env.CONTENTSTACK_ACCESS_TOKEN,
+  environment: process.env.CONTENTSTACK_ENVIRONMENT || "main",
+  baseURL:
+    process.env.CONTENTSTACK_BASE_URL || "https://cdn.contentstack.io/v3",
 };
 
 // Contentstack Automation Endpoint
 const CONTENTSTACK_AUTOMATION_URL =
-  "https://app.contentstack.com/automations-api/run/af7b65e7a0a746559daac2575cc86132";
-const CONTENTSTACK_AUTOMATION_KEY = "L9*hchoia";
+  process.env.CONTENTSTACK_STOCK_AUTOMATION_URL;
+const CONTENTSTACK_AUTOMATION_KEY =
+  process.env.CONTENTSTACK_STOCK_AUTOMATION_KEY;
 
 // Function to fetch current stock from Contentstack
 async function getCurrentStockFromContentstack(productUid) {

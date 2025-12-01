@@ -6,16 +6,18 @@ const Review = require("../models/reviewModel");
 
 // Contentstack Configuration
 const CONTENTSTACK_CONFIG = {
-  apiKey: "blt3435e7e7f3e56dcc",
-  accessToken: "cseab624052afe37759c0de021",
-  environment: "main",
-  baseURL: "https://cdn.contentstack.io/v3",
+  apiKey: process.env.CONTENTSTACK_API_KEY,
+  accessToken: process.env.CONTENTSTACK_ACCESS_TOKEN,
+  environment: process.env.CONTENTSTACK_ENVIRONMENT || "main",
+  baseURL:
+    process.env.CONTENTSTACK_BASE_URL || "https://cdn.contentstack.io/v3",
 };
 
 // Contentstack Automation Configuration for Rating Updates
 const CONTENTSTACK_RATING_AUTOMATION_URL =
-  "https://app.contentstack.com/automations-api/run/12b2dadac7614c9f81e25a2500794e88";
-const CONTENTSTACK_RATING_AUTOMATION_KEY = "T3^upokzlyw";
+  process.env.CONTENTSTACK_RATING_AUTOMATION_URL;
+const CONTENTSTACK_RATING_AUTOMATION_KEY =
+  process.env.CONTENTSTACK_RATING_AUTOMATION_KEY;
 
 // Function to fetch current rating from Contentstack
 async function getCurrentRatingFromContentstack(productUid) {
