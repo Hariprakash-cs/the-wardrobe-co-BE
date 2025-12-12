@@ -10,7 +10,7 @@ var orderRoute = require("./routes/orderRoute");
 const cors = require("cors");
 app.use(
   cors({
-    orgin: "*",
+    origin: "*",
   })
 );
 app.use(bodyParser.json());
